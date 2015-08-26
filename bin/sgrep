@@ -1,17 +1,31 @@
 #!/usr/bin/env bash
 
 set -e
-set -u
 
 if git rev-parse --git-dir > /dev/null 2>&1; then
   command="git grep"
-  args="-H --line-number --no-color"
+
+  if [ -n "$VIM" ]; then
+    args="-H --line-number --no-color"
+  else
+    args="-H --line-number"
+  fi
 elif hash ag 2>/dev/null; then
   command="ag"
-  args="--vimgrep"
+
+  if [ -n "$VIM" ]; then
+    args="--vimgrep"
+  else
+    args=""
+  fi
 elif hash ack 2>/dev/null; then
   command="ack"
-  args="-s -H --nocolor --nogroup --column"
+
+  if [ -n "$VIM" ]; then
+    args="-s -H --nocolor --nogroup --column"
+  else
+    args="-s -H --column"
+  fi
 else
   command="grep"
   args="-nrI"
