@@ -8,7 +8,7 @@ load test_helper
 
   run sgrep pattern
 
-  [ "${lines[0]}" = "Using command: git grep -H --line-number pattern" ]
+  [ "${lines[0]}" = "Using command: git grep -H --line-number --untracked pattern" ]
 }
 
 @test "uses ag when available" {
