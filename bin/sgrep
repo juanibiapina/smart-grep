@@ -4,14 +4,18 @@ set -e
 set -u
 
 if git rev-parse --git-dir > /dev/null 2>&1; then
-  command="git grep -H --line-number --no-color"
+  command="git grep"
+  args="-H --line-number --no-color"
 elif hash ag 2>/dev/null; then
-  command="ag --vimgrep"
+  command="ag"
+  args="--vimgrep"
 elif hash ack 2>/dev/null; then
-  command="ack -s -H --nocolor --nogroup --column"
+  command="ack"
+  args="-s -H --nocolor --nogroup --column"
 else
-  command="grep -nrI"
+  command="grep"
+  args="-nrI"
 fi
 
->&2 echo "Using command: $command $@"
-${command} "$@"
+>&2 echo "Using command: $command $args $@"
+${command} ${args} "$@"
