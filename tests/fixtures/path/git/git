@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ "$1" = "grep" ]; then
+  echo git "$@"
+else
+  ${ORIGINAL_GIT} "$@"
+fi
