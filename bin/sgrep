@@ -16,7 +16,7 @@ elif hash ag 2>/dev/null; then
   if [ -n "$VIM" ]; then
     args="--vimgrep"
   else
-    args=""
+    args="--column"
   fi
 elif hash ack 2>/dev/null; then
   command="ack"

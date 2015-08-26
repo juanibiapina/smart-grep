@@ -10,3 +10,30 @@ load test_helper
 
   [ "${lines[0]}" = "Using command: git grep -H --line-number pattern" ]
 }
+
+@test "uses ag when available" {
+  mock ag
+  mock ack
+  mock grep
+
+  run sgrep pattern
+
+  [ "${lines[0]}" = "Using command: ag --column pattern" ]
+}
+
+@test "uses ack if ag not available" {
+  mock ack
+  mock grep
+
+  run sgrep pattern
+
+  [ "${lines[0]}" = "Using command: ack -s -H --column pattern" ]
+}
+
+@test "uses grep if ack not available" {
+  mock grep
+
+  run sgrep pattern
+
+  [ "${lines[0]}" = "Using command: grep -nrI pattern" ]
+}

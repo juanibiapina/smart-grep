@@ -21,3 +21,8 @@ mock_git() {
   export ORIGINAL_GIT="$(which git)"
   export PATH="${FIXTURES_DIR}/path/git:$PATH"
 }
+
+mock() {
+  local command="$1"
+  export PATH="${FIXTURES_DIR}/path/$command:$PATH"
+}
