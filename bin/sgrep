@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
 if git rev-parse --git-dir > /dev/null 2>&1; then
   command="git grep -H --line-number --no-color"
-else
+elif hash ag 2>/dev/null; then
   command="ag --vimgrep"
+elif hash ack 2>/dev/null; then
+  command="ack -s -H --nocolor --nogroup --column"
+else
+  command="grep -nrI"
 fi
 
+>&2 echo "Using command: $command $@"
 ${command} "$@"
