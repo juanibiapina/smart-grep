@@ -1,20 +1,20 @@
-export SGREP_TMP_DIR="${BATS_TMPDIR}/sgrep"
-export SGREP_PWD="${SGREP_TMP_DIR}/pwd"
+export SMARTGREP_TMP_DIR="${BATS_TMPDIR}/smart-grep"
+export SMARTGREP_PWD="${SMARTGREP_TMP_DIR}/pwd"
 
 export FIXTURES_DIR="${BATS_TEST_DIRNAME}/fixtures"
 
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="${BATS_TEST_DIRNAME}/../bin:$PATH"
 
-mkdir -p "${SGREP_TMP_DIR}"
-mkdir -p "${SGREP_PWD}"
+mkdir -p "${SMARTGREP_TMP_DIR}"
+mkdir -p "${SMARTGREP_PWD}"
 
 setup() {
-  cd "${SGREP_PWD}"
+  cd "${SMARTGREP_PWD}"
 }
 
 teardown() {
-  rm -rf "${SGREP_TMP_DIR}"
+  rm -rf "${SMARTGREP_TMP_DIR}"
 }
 
 mock_git() {

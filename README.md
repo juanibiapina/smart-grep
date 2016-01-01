@@ -1,20 +1,20 @@
-# sgrep
+# Smart Grep
 
-Grep wrapper that tries to pick the most efficient tool available.
+Grep wrapper that tries to pick the most efficient tool available by context.
 
 ## Installation
 
 ```
-basher install juanibiapina/sgrep
+basher install juanibiapina/smart-grep
 ```
 
 ## Usage
 
 ```
-sgrep pattern
+smart-grep pattern
 ```
 
-sgrep will select the tool with the following priority:
+smart-grep will select the tool with the following priority:
 
 - `git grep` if current directory is a git repository
 - `ag` if available
@@ -26,7 +26,7 @@ sgrep will select the tool with the following priority:
 Add the following to your vim configuration:
 
 ```
-if executable('sgrep')
-  set grepprg=sgrep
+if executable('smart-grep')
+  set grepprg=smart-grep
 endif
 ```

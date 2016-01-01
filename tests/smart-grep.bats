@@ -6,7 +6,7 @@ load test_helper
   git init .
   mock_git
 
-  run sgrep pattern
+  run smart-grep pattern
 
   [ "${lines[0]}" = "Using command: git grep -H --line-number --untracked pattern" ]
 }
@@ -16,7 +16,7 @@ load test_helper
   mock ack
   mock grep
 
-  run sgrep pattern
+  run smart-grep pattern
 
   [ "${lines[0]}" = "Using command: ag --column pattern" ]
 }
@@ -25,7 +25,7 @@ load test_helper
   mock ack
   mock grep
 
-  run sgrep pattern
+  run smart-grep pattern
 
   [ "${lines[0]}" = "Using command: ack -s -H --column pattern" ]
 }
@@ -33,7 +33,7 @@ load test_helper
 @test "uses grep if ack not available" {
   mock grep
 
-  run sgrep pattern
+  run smart-grep pattern
 
   [ "${lines[0]}" = "Using command: grep -nrI pattern" ]
 }
