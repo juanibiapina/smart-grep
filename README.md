@@ -31,8 +31,14 @@ if executable('smart-grep')
 endif
 ```
 
-## Running Tests
-First, make sure you have bats installed. [Instructions here:](https://github.com/sstephenson/bats#installing-bats-from-source)
+## Development
+- First, make sure you have bats installed:
+```
+basher install sstephenson/bats
+```
+or manually: [instructions here](https://github.com/sstephenson/bats#installing-bats-from-source)
+
+- Running Tests:
 ```bash
 make test
 ```
