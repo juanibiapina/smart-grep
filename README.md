@@ -30,3 +30,10 @@ if executable('smart-grep')
   set grepprg=smart-grep
 endif
 ```
+
+## Running Tests
+First, make sure you have bats installed. [Instructions here:](https://github.com/sstephenson/bats#installing-bats-from-source)
+```bash
+make test
+```
+
