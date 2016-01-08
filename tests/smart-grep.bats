@@ -8,7 +8,7 @@ load test_helper
 
   run smart-grep pattern
 
-  [ "${lines[0]}" = "Using command: git grep -H --line-number --untracked --ignore-case pattern" ]
+  [ "${lines[0]}" = "Using command: git grep -I -H --line-number --untracked --ignore-case pattern" ]
 }
 
 @test "uses ag when available" {

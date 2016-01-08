@@ -6,9 +6,9 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
   command="git grep"
 
   if [ -n "$VIM" ]; then
-    args="-H --line-number --no-color --untracked --ignore-case"
+    args="-I -H --line-number --no-color --untracked --ignore-case"
   else
-    args="-H --line-number --untracked --ignore-case"
+    args="-I -H --line-number --untracked --ignore-case"
   fi
 elif hash ag 2>/dev/null; then
   command="ag"
