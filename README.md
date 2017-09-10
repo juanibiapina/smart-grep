@@ -2,6 +2,8 @@
 
 Grep wrapper that tries to pick the most efficient tool available by context.
 
+**DEPRECATED**: Just use https://github.com/BurntSushi/ripgrep
+
 ## Installation
 
 ```
